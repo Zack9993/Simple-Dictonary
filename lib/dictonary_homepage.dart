@@ -38,7 +38,7 @@ class _DictonaryHomepageState extends State<DictonaryHomepage> {
         centerTitle: true,
       ),
       body: Padding(
-        padding: EdgeInsets.all(15),
+        padding: const EdgeInsets.all(15),
         child: Column(
           children: [
             //Used to search the word.
@@ -48,17 +48,17 @@ class _DictonaryHomepageState extends State<DictonaryHomepage> {
                 searchContain(value);
               },
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             if (isLoading)
-              LinearProgressIndicator()
+              const LinearProgressIndicator()
             else if (myDictonaryModel != null)
               Expanded(
                 child: Column(
                   children: [
-                    SizedBox(height: 15),
+                    const SizedBox(height: 15),
                     Text(
                       myDictonaryModel!.word,
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontSize: 25,
                           fontWeight: FontWeight.bold,
                           color: Colors.blue),
@@ -66,11 +66,13 @@ class _DictonaryHomepageState extends State<DictonaryHomepage> {
                     Text(myDictonaryModel!.phonetics.isEmpty
                         ? myDictonaryModel!.phonetics[0].text ?? ""
                         : ""),
-                    SizedBox(height: 15),
+                    const SizedBox(height: 15),
                     Expanded(
                       child: ListView.builder(
                         itemCount: myDictonaryModel!.meanings.length,
-                        itemBuilder: (context, index) {},
+                        itemBuilder: (context, index) {
+                          
+                        },
                       ),
                     ),
                   ],
@@ -80,7 +82,7 @@ class _DictonaryHomepageState extends State<DictonaryHomepage> {
               Center(
                 child: Text(
                   noDataFound,
-                  style: TextStyle(fontSize: 22),
+                  style: const TextStyle(fontSize: 22),
                 ),
               ),
           ],
@@ -96,12 +98,34 @@ class _DictonaryHomepageState extends State<DictonaryHomepage> {
       wordDefination += "\n${index + 1}. ${element.definition}\n";
     }
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 10),child: Material(
+      padding: const EdgeInsets.symmetric(vertical: 10),
+      child: Material(
         elevation: 2,
         borderRadius: BorderRadius.circular(20),
         child: Column(
           children: [
-            Text(meaning.partOfSpeech,style: TextStyle(fontWeight: ),)
+            Text(
+              meaning.partOfSpeech,
+              style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 22,
+                  color: Colors.blue),
+            ),
+            const SizedBox(height: 10),
+            const Text(
+              "Definations: ",
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                  color: Colors.black),
+            ),
+            Text(
+              wordDefination,
+              style: const TextStyle(
+                fontSize: 16,
+                height: 1,
+              ),
+            ),
           ],
         ),
       ),
