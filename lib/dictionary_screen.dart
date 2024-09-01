@@ -35,7 +35,7 @@ class _DictionaryHomePageState extends State<DictionaryHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Dictionary"),
+        title: const Center(child: Text("Dictionary")),
       ),
       body: Padding(
         padding: const EdgeInsets.all(15),
